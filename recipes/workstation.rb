@@ -32,6 +32,8 @@ execute "yum update -y" do
   not_if "yum check-update"
 end
 
+package 'git'
+
 # basic workstation setup
 user chef_user do
   comment "Chef User"

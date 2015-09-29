@@ -27,18 +27,20 @@
 
 require 'chef/provisioning/aws_driver'
 
+name = node["cert_poc"]['basename']
+
 with_driver 'aws::us-east-1' do
 
-  aws_key_pair 'cert_poc_key' do
+  aws_key_pair "#{name}_key" do
     allow_overwrite false
-    private_key_path "#{ENV['HOME']}/.ssh/cert_poc_key"
+    private_key_path "#{ENV['HOME']}/.ssh/#{name}_key"
   end
 
-  aws_security_group "cert_poc" do
-    inbound_rules '0.0.0.0/0' => [22, 3389, 5985, 5986]
+  aws_security_group "#{name}" do
+    inbound_rules '0.0.0.0/0' => [22, 80, 443, 3389, 5985, 5986]
   end
 
-  machine 'cert_poc_linux' do
+  machine "#{name}_linux" do
     converge true
     recipe 'cert_poc'
     machine_options({
@@ -46,8 +48,8 @@ with_driver 'aws::us-east-1' do
       :bootstrap_options => {
         :image_id => 'ami-c2a818aa',
         :instance_type => 'm3.xlarge',
-        :key_name => 'cert_poc_key',
-        :security_group_ids => ['cert_poc']
+        :key_name => "#{name}_key",
+        :security_group_ids => ["#{name}"]
       }
     })
   end

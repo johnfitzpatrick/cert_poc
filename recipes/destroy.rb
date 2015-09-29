@@ -27,25 +27,27 @@
 
 require 'chef/provisioning/aws_driver'
 
+name = node["cert_poc"]['basename']
+
 with_driver 'aws::us-east-1' do
 
   # machine 'cert_poc_windows' do
   #   action :destroy
   # end
 
-  machine 'cert_poc_linux' do
+  machine "#{name}_linux" do
     action :destroy
   end
 
-  aws_security_group 'cert_poc' do
+  aws_security_group "#{name}" do
     action :destroy
   end
 
-  aws_key_pair 'cert_poc_key' do
+  aws_key_pair "#{name}_key" do
     action :destroy
   end
 
-  file "#{ENV['HOME']}/.ssh/cert_poc_key" do
+  file "#{ENV['HOME']}/.ssh/#{name}_key" do
     action :delete
     backup false
   end
