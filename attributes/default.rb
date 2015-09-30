@@ -1,4 +1,4 @@
-default["cert_poc"]['basename'] = 'jhn-cert-poc'
+default["cert_poc"]['basename'] = 'jhn-cert-poc-300915'
 
 default['cert_poc']['user'] = 'chef'
 default['cert_poc']['password'] = 'chef'

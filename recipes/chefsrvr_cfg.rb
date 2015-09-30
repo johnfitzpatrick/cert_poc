@@ -25,9 +25,11 @@ adminuserpassword= node["cert_poc"]["adminuserpassword"]
 
 #Create Administrator
 createadmincommand = "chef-server-ctl user-create #{adminuser} #{adminuserfirst} #{adminuserlast} #{adminuseremail} #{adminuserpassword} --filename /root/#{adminuser}.pem"
+#Need a 'not_if' around this to make it idempotent
 execute createadmincommand
 
 #Create Organisation
 createorgcommand = "chef-server-ctl org-create #{org} #{org} --association_user #{adminuser} --filename /root/#{org}-validator.pem"
+#Need a 'not_if' around this to make it idempotent
 execute createorgcommand
 

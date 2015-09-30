@@ -25,12 +25,8 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+include_recipe "cert_poc::ohai_hints"
 include_recipe "cert_poc::chef_server"
 include_recipe "cert_poc::chefsrvr_cfg"
-
 include_recipe "cert_poc::workstation"
 include_recipe "cert_poc::docker"
-
-log 'echo details' do
-	message "The machine is contactable at #{node['ipaddress']}"
-end
