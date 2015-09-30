@@ -67,3 +67,8 @@ with_driver 'aws::us-east-1' do
   #   })
   # end
 end
+
+log 'echo_details' do
+  message "The machine is contactable at #{node['ipaddress']}"
+  level :warn
+end
