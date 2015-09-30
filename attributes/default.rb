@@ -1,4 +1,4 @@
-default["cert_poc"]['basename'] = 'jhn-cert-poc'
+default["cert_poc"]['basename'] = 'myname-cert-poc'
 
 default['cert_poc']['user'] = 'chef'
 default['cert_poc']['password'] = 'chef'
@@ -11,13 +11,13 @@ default['cert_poc']['chef_server']['rpm'] = "https://web-dl.packagecloud.io/chef
 default["cert_poc"]["defaultorg"] = "chef-cert-org"
 default["cert_poc"]["defaultorgfullname"] = "chef-cert-org"
 default["cert_poc"]["chefusername"] = "chef"
-default["cert_poc"]["chefuserfirstname"] = "John"
-default["cert_poc"]["chefuserlastname"] = "Doe"
-default["cert_poc"]["chefuseremail"] = "fitz@chef.io"
-default["cert_poc"]["chefuserpassword"] = "chefpassword"
+default["cert_poc"]["chefuserfirstname"] = "Cheffirst"
+default["cert_poc"]["chefuserlastname"] = "cheflast"
+default["cert_poc"]["chefuseremail"] = "chef@example.com"
+default["cert_poc"]["chefuserpassword"] = "password123"
 
-default["cert_poc"]["adminuser"] = "janedoe"
-default["cert_poc"]["adminuserfirstname"] = "Jane"
-default["cert_poc"]["adminuserlastname"] = "Doe"
-default["cert_poc"]["adminuseremail"] = "fitzadmin@chef.io"
-default["cert_poc"]["adminuserpassword"] = "adminpassword"
+default["cert_poc"]["adminuser"] = "admin"
+default["cert_poc"]["adminuserfirstname"] = "adminfirst"
+default["cert_poc"]["adminuserlastname"] = "adminlast"
+default["cert_poc"]["adminuseremail"] = "admin@example.com"
+default["cert_poc"]["adminuserpassword"] = "password123"
